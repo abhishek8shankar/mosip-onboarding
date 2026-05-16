@@ -12,6 +12,10 @@ upload_ida_root_cert() {
     mkdir -p "$reports_dir"
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var cert-application-id=ROOT \
     --env-var cert-reference-id=  \
     --env-var request-time="$DATE" \
@@ -32,6 +36,10 @@ upload_ida_cert() {
     mkdir -p "$reports_dir"
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var cert-application-id=IDA \
     --env-var cert-reference-id=  \
     --env-var request-time="$DATE" \
@@ -51,6 +59,10 @@ upload_ida_partner_cert () {
     mkdir -p "$reports_dir"
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var request-time="$DATE" \
     --env-var cert-application-id=IDA \
     --env-var cert-reference-id=mpartner-default-auth \
@@ -74,6 +86,10 @@ upload_ida_cred_cert () {
     mkdir -p "$reports_dir"
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var request-time="$DATE" \
     --env-var cert-application-id=IDA \
     --env-var cert-reference-id=CRED_SERVICE \
@@ -94,6 +110,10 @@ upload_resident_cert() {
     mkdir -p "$reports_dir"
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var request-time="$DATE" \
     --env-var cert-application-id=RESIDENT \
     --env-var cert-reference-id=mpartner-default-resident \
@@ -122,6 +142,10 @@ upload_print_cert() {
     partner_cert=`awk '{ print $0 }' $partner_cert_path`
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var request-time="$DATE" \
     --env-var cert-manager-username="$KEYCLOAK_CLIENT" \
     --env-var cert-manager-password="$KEYCLOAK_CLIENT_SECRET" \
@@ -147,6 +171,10 @@ upload_abis_cert () {
     partner_cert=`awk '{ print $0 }' $partner_cert_path`
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var request-time="$DATE" \
     --env-var cert-manager-username="$KEYCLOAK_CLIENT" \
     --env-var cert-manager-password="$KEYCLOAK_CLIENT_SECRET" \
@@ -171,6 +199,10 @@ upload_mpartner_default_mobile_cert() {
     partner_cert=`awk '{ print $0 }' $partner_cert_path`
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var request-time="$DATE" \
     --env-var cert-manager-username="$KEYCLOAK_CLIENT" \
     --env-var cert-manager-password="$KEYCLOAK_CLIENT_SECRET" \
@@ -194,6 +226,10 @@ upload_mpartner_default_digitalcard_cert() {
     mkdir -p "$reports_dir"
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var request-time="$DATE" \
     --env-var cert-application-id=DIGITAL_CARD \
     --env-var cert-reference-id=mpartner-default-digitalcard \
@@ -219,6 +255,10 @@ onboard_esignet_partner() {
     mkdir -p "$reports_dir"
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var request-time="$DATE" \
 	--env-var partner-manager-username=esignet-kc-mockusername \
 	--env-var partner-manager-password=esignet-kc-mockpassword \
@@ -272,6 +312,10 @@ onboard_mock_relying_party_with_mock_rp_oidc_client(){
 	echo $partner_cert
 	newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var request-time="$DATE" \
 	--env-var partner-manager-username=mock-rp-oidc-kc-mockusername \
 	--env-var partner-manager-password=mock-rp-oidc-kc-mockuserpassword \
@@ -331,6 +375,10 @@ reports_dir="./reports/RESIDENT_OIDC/$current_datetime"
     jwk_key=$(awk -F'"' '/"n"/ {print $8}' pubkey.jwk)
     newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url=$URL \
+    --env-var pms-url="$PMS_URL" \
+        --env-var ida-url="$IDA_URL" \
+        --env-var auth-url="$AUTH_URL" \
+        --env-var km-url="$KM_URL" \
     --env-var request-time=$DATE \
 	--env-var partner-manager-username=residentoidc-kc-mockusername \
 	--env-var partner-manager-password=residentoidc-kc-mockuserpassword \
@@ -387,6 +435,10 @@ onboard_mimoto_keybinding_partner(){
 	echo $partner_cert
 	newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
   --env-var url="$URL" \
+  --env-var pms-url="$PMS_URL" \
+      --env-var ida-url="$IDA_URL" \
+      --env-var auth-url="$AUTH_URL" \
+      --env-var km-url="$KM_URL" \
   --env-var request-time="$DATE" \
 	--env-var partner-manager-username=$PARTNER_KC_USERNAME \
 	--env-var partner-manager-password=$PARTNER_KC_USERPASSWORD \
@@ -443,6 +495,10 @@ onboard_mimoto_oidc_partner(){
 	echo $jwk_key
 	newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
   --env-var url="$URL" \
+  --env-var pms-url="$PMS_URL" \
+      --env-var ida-url="$IDA_URL" \
+      --env-var auth-url="$AUTH_URL" \
+      --env-var km-url="$KM_URL" \
   --env-var request-time="$DATE" \
 	--env-var partner-manager-username=$PARTNER_KC_USERNAME \
 	--env-var partner-manager-password=$PARTNER_KC_USERPASSWORD \
@@ -502,6 +558,10 @@ onboard_esignet_signup_oidc_partner(){
 
 	newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+    --env-var ida-url="$IDA_URL" \
+    --env-var auth-url="$AUTH_URL" \
+    --env-var km-url="$KM_URL" \
     --env-var external-url=$EXTERNAL_URL \
     --env-var request-time="$DATE" \
 	--env-var logo-uri=$LOGO_URI \
@@ -547,6 +607,10 @@ onboard_esignet_sunbird_partner(){
 
 	newman run onboarding.postman_collection.json --delay-request 2000 -e onboarding.postman_environment.json --bail \
     --env-var url="$URL" \
+    --env-var pms-url="$PMS_URL" \
+    --env-var ida-url="$IDA_URL" \
+    --env-var auth-url="$AUTH_URL" \
+    --env-var km-url="$KM_URL" \
     --env-var sunbird-url=$SUNBIRD_URL \
     --env-var request-time="$DATE" \
 	--env-var logo-uri=$LOGO_URI \
@@ -587,7 +651,10 @@ echo " KEYCLOAK ADMIN USER : $KEYCLOAK_ADMIN_USER"
 URL="https://$(printenv mosip-api-internal-host)"
 EXTERNAL_URL="https://$(printenv mosip-esignet-host)"
 SUNBIRD_URL="https://$(printenv mosip-esignet-insurance-host)"
-
+PMS_URL="https://$(printenv mosip-pms-host)"
+AUTH_URL="https://$(printenv mosip-auth-host)"
+KM_URL="https://$(printenv mosip-keymanager-host)"
+IDA_URL="https://$(printenv mosip-ida-host)"
 echo "URL : $URL and $EXTERNAL_URL"
 
 if [ "$ENABLE_INSECURE" = "true" ]; then
