@@ -3048,7 +3048,7 @@
                   "    pm.environment.set(\"redirect_uris_array\", \"[]\");\r",
                   "}\r",
                   "if (pm.environment.get(\"mosip-id\") == 'true') {\r",
-                  "    console.log(\"This request is skipped as eSignet is not deployed against MosipID\");\r",
+                  "    console.log(\"This request is skipped as eSignet is deployed against MosipID\");\r",
                   "\r",
                   "    pm.execution.skipRequest()\r",
                   "}\r",
