@@ -61,5 +61,6 @@ ENV s3-bucket-name=
 
 ENV ns_mimoto=
 ENV ns_esignet=
-
+ENV mock_rp_service=
+ENV mock_rp_ui=
 ENTRYPOINT ["./entrypoint.sh"]
