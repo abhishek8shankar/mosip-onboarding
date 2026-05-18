@@ -708,8 +708,8 @@ elif [ "$MODULE" = "mock-rp-oidc" ]; then
   PARTNER_TYPE=Auth_Partner
   OIDC_CLIENT_NAME='Health service OIDC Client'
   OIDC_CLIENTID='default-non-mosipid-oidc-client'
-  LOGO_URI=https://healthservices.$( printenv installation-domain)/logo.png
-  REDIRECT_URIS=https://healthservices.$( printenv installation-domain)/userprofile
+  LOGO_URI="$(printenv mock-rp-logouri)"
+  REDIRECT_URIS="$(printenv mock-rp-redirecturi)"
   root_cert_path="$MYDIR/certs/$PARTNER_KC_USERNAME/RootCA.pem"
   client_cert_path="$MYDIR/certs/$PARTNER_KC_USERNAME/Client.pem"
   onboard_mock_relying_party_with_mock_rp_oidc_client
@@ -772,8 +772,9 @@ elif [ "$MODULE" = "resident-oidc" ]; then
   export PARTNER_KC_USERNAME=mosip-signup-oauth-client
   root_cert_path="$MYDIR/certs/$PARTNER_KC_USERNAME/RootCA.pem"
   client_cert_path="$MYDIR/certs/$PARTNER_KC_USERNAME/Client.pem"
-  LOGO_URI="https://healthservices.$( printenv installation-domain)/images/brand_logo.png"
-  REDIRECT_URIS="https://signup.$( printenv installation-domain)/identity-verification"
+  LOGO_URI=LOGO_URI="$(printenv esignet-signup-logouri)"
+  REDIRECT_URIS="$(printenv esignet-signup-redirecturi)"
+
   onboard_esignet_signup_oidc_partner
   elif [ "$MODULE" = "sunbird-oidc" ]; then
   APPLICATION_ID=partner
