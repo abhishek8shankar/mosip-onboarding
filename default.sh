@@ -714,8 +714,8 @@ elif [ "$MODULE" = "mock-rp-oidc" ]; then
   client_cert_path="$MYDIR/certs/$PARTNER_KC_USERNAME/Client.pem"
   onboard_mock_relying_party_with_mock_rp_oidc_client
   kubectl patch secret mock-relying-party-private-key-jwk -n $ns_esignet -p '{"data":{"client-private-key":"'$(echo -n "$privateandpublickeypair" | base64 | tr -d '\n')'"}}'
-  kubectl rollout restart deployment -n $ns_esignet mock-relying-party-service
-  kubectl -n $ns_esignet set env deployment/mock-relying-party-ui CLIENT_ID=$mpartnerdefaultdemooidcclientID
+  kubectl rollout restart deployment -n $ns_esignet $mock_rp_service
+  kubectl -n $ns_esignet set env deployment/$mock_rp_ui CLIENT_ID=$mpartnerdefaultdemooidcclientID
 elif [ "$MODULE" = "resident-oidc" ]; then
   APPLICATION_ID=partner
   MODULE_CLIENTID=mosip-pms-client
