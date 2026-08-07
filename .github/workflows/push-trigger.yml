@@ -20,7 +20,7 @@ on:
       - 1.*
       - master
       - MOSIP*
-      - moupdate
+      - moupdate*
 jobs:
   build-dockers:
     strategy:
